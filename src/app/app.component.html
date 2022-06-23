@@ -11,7 +11,7 @@
 <h4>
 <mat-form-field  class="in50px">
 <input matInput  [(ngModel)]="pos.sym"  placeholder="SYM" />
-</mat-form-field>   <span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  </span>  <mat-form-field class="in30px" >
+</mat-form-field>   <span> &nbsp; &nbsp; &nbsp; </span>  <mat-form-field class="in30px" >
 <input  type="number" matInput  [(ngModel)]="pos.size"   placeholder="Size" />
 </mat-form-field>
 <span> &nbsp; &nbsp; &nbsp;  </span>
@@ -19,6 +19,7 @@
 <input type="number"  [(ngModel)]="pos.cost"  matInput   placeholder="Cost" />
 </mat-form-field>
 <span> &nbsp;  </span>
+<button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
 </h4>
 
 <h5 class="example-h2"  *ngFor="let oleg of optLegs; let ii = index"  > L #{{ii+1}}:   <span> &nbsp; </span> 
@@ -47,10 +48,7 @@
 </mat-form-field>     
 </h5>  
 
-<mat-card-actions>
-<button mat-button (click)="tempfn()">Calculate</button>  
-</mat-card-actions>
-
+<hr>
 <p> </p>
 
 <h5  *ngFor="let pl of plgrid" > 
