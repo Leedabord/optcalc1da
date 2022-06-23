@@ -1,0 +1,136 @@
+import { Component, OnInit, VERSION } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent implements OnInit {
+  name = 'Angular ' + VERSION.major;
+  foods: any[] = [
+    { name: 'Pizza', rating: 'Excellent' },
+    { name: 'Burritos', rating: 'Great' },
+    { name: 'French fries', rating: 'Pretty good' },
+  ];
+
+  badgeDisabled = true;
+  badgeHidden = false;
+  badgeOverlap = false;
+ 
+  public selectedValue: string;
+
+  public games = [
+    {value: 'rts-0', viewValue: 'Starcraft'},
+    {value: 'rpg-1', viewValue: 'Baldur\'s Gate'},
+    {value: 'fps-2', viewValue: 'Doom'}
+  ];
+
+  public progress = 0;
+
+
+  public buysell = [ { value: 1, viewValue: "Buy" },
+              { value: -1, viewValue: "Sell" }  ];
+  public putcall = [ { value: 1, viewValue: "Call" },
+              { value: -1, viewValue: "Put" }  ];
+  
+  public pos = { "sym": "sym", "size": 8,  "cost": 1.25 };
+
+  public optLegs = [ 
+    {"bs": 1, "qty": 1, "exp": "15 jul", "strike": 50, "cp": 1 },
+    {"bs": -1, "qty": 1, "exp": "15 jul", "strike": 45, "cp": 1 },
+    {"bs": 1, "qty": 1, "exp": "24 aug", "strike": 33, "cp": -1 },
+    {"bs": -1, "qty": 1, "exp": "24 aug", "strike": 36, "cp": -1 },
+  ];
+
+  public plgrid = [
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+    { "mark": 0, "w0": [0,0,0,0], "sum1": 0, "sum2": 0, "sum3": 0},
+  ];
+
+  constructor(
+    private httpC: HttpClient, 
+    private formB: FormBuilder
+    ) {  
+
+    }
+
+  ngOnInit() { 
+  this.tempfn();
+}
+
+tempfn() { 
+  var ii = 0, jj = 0;
+  var minstrike = 9999;
+  for (ii = 0; ii < 4; ii++) {
+    if (this.optLegs[ii].qty > 0) {
+      minstrike = Math.min(minstrike, this.optLegs[ii].strike)
+    }
+  }
+
+  for (ii = 0; ii < this.plgrid.length; ii++) {
+    this.plgrid[ii].mark = minstrike + ii - 3;
+    this.plgrid[ii].sum1 = 0;
+    for (jj = 0; jj < 4; jj++) {
+      if (this.optLegs[jj].qty > 0) {
+        this.plgrid[ii].w0[jj] = (this.plgrid[ii].mark - this.optLegs[jj].strike) * this.optLegs[jj].cp;
+
+        if (this.plgrid[ii].w0[jj] < 0) {
+          this.plgrid[ii].w0[jj] = 0;
+        }
+
+          this.plgrid[ii].w0[jj] = this.plgrid[ii].w0[jj] * this.optLegs[jj].bs;
+  
+      }
+      else {
+        this.plgrid[ii].w0[jj] = 0;
+      }
+      this.plgrid[ii].sum1 += this.plgrid[ii].w0[jj];
+      this.plgrid[ii].sum2 = this.plgrid[ii].sum1 + this.pos.cost;
+      this.plgrid[ii].sum3 = this.plgrid[ii].sum2 * this.pos.size * 100;
+    }
+  }
+  
+} // end tempfn()
+
+  toggleBadgeHidden() {
+    this.badgeHidden = !this.badgeHidden;
+  }
+  toggleBadgeDisabled() {
+    this.badgeDisabled = !this.badgeDisabled;
+  }
+  toggleBadgeOverlap() {
+    this.badgeOverlap = !this.badgeOverlap;
+  }    
+
+}
