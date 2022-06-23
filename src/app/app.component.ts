@@ -16,21 +16,6 @@ export class AppComponent implements OnInit {
     { name: 'French fries', rating: 'Pretty good' },
   ];
 
-  badgeDisabled = true;
-  badgeHidden = false;
-  badgeOverlap = false;
- 
-  public selectedValue: string;
-
-  public games = [
-    {value: 'rts-0', viewValue: 'Starcraft'},
-    {value: 'rpg-1', viewValue: 'Baldur\'s Gate'},
-    {value: 'fps-2', viewValue: 'Doom'}
-  ];
-
-  public progress = 0;
-
-
   public buysell = [ { value: 1, viewValue: "Buy" },
               { value: -1, viewValue: "Sell" }  ];
   public putcall = [ { value: 1, viewValue: "Call" },
@@ -99,7 +84,7 @@ tempfn() {
   }
 
   for (ii = 0; ii < this.plgrid.length; ii++) {
-    this.plgrid[ii].mark = minstrike + ii - 3;
+    this.plgrid[ii].mark = minstrike + ii - 5;
     this.plgrid[ii].sum1 = 0;
     for (jj = 0; jj < 4; jj++) {
       if (this.optLegs[jj].qty > 0) {
@@ -122,15 +107,5 @@ tempfn() {
   }
   
 } // end tempfn()
-
-  toggleBadgeHidden() {
-    this.badgeHidden = !this.badgeHidden;
-  }
-  toggleBadgeDisabled() {
-    this.badgeDisabled = !this.badgeDisabled;
-  }
-  toggleBadgeOverlap() {
-    this.badgeOverlap = !this.badgeOverlap;
-  }    
 
 }
