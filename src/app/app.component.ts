@@ -88,7 +88,7 @@ tempfn() {
     this.plgrid[ii].sum1 = 0;
     for (jj = 0; jj < 4; jj++) {
       if (this.optLegs[jj].qty > 0) {
-        this.plgrid[ii].w0[jj] = (this.plgrid[ii].mark - this.optLegs[jj].strike) * this.optLegs[jj].cp;
+        this.plgrid[ii].w0[jj] = (this.plgrid[ii].mark - this.optLegs[jj].strike) * this.optLegs[jj].cp * this.optLegs[jj].qty;
 
         if (this.plgrid[ii].w0[jj] < 0) {
           this.plgrid[ii].w0[jj] = 0;
