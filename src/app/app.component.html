@@ -65,7 +65,19 @@
       </mat-panel-description>
       </mat-expansion-panel-header>
 
-        <mat-grid-list cols="12" rowHeight="20px">
+      <button mat-button >
+              {{ pl.w0[0] }} , 
+              {{ pl.w0[1] }} ,  
+              {{ pl.w0[2] }} ,  
+              {{ pl.w0[3] }} 
+              &nbsp; &nbsp; | {{ pl.sum1 }} | &nbsp; &nbsp;
+                {{ pl.sum2 }} </button>  
+
+      </mat-expansion-panel>
+</mat-accordion>
+
+<!-- 
+          <mat-grid-list cols="12" rowHeight="20px">
             <mat-grid-tile
             [colspan]="8"
             [rowspan]="1">
@@ -78,32 +90,6 @@
                 {{ pl.sum2 }} </button>  
           </mat-grid-tile>
         </mat-grid-list>
-
-      </mat-expansion-panel>
-</mat-accordion>
-
-<!--   <mat-grid-list cols="12" rowHeight="100px">
-    <mat-grid-tile
-        [colspan]="2">
-        <button> $ {{ pl.mark }} </button>
-      </mat-grid-tile>
-      <mat-grid-tile
-      [colspan]="7"
-      [rowspan]="1">
-      <button mat-button >
-        {{ pl.w0[0] }} , 
-        {{ pl.w0[1] }} ,  
-        {{ pl.w0[2] }} ,  
-        {{ pl.w0[3] }} 
-        &nbsp; &nbsp; | {{ pl.sum1 }} | &nbsp; &nbsp;
-          {{ pl.sum2 }} </button>  
-    </mat-grid-tile>
-    <mat-grid-tile
-        [colspan]="3"
-        [rowspan]="1">
-        <button mat-raised-button  color="accent" > $ {{ pl.sum3 }} </button>  
-      </mat-grid-tile>
-  </mat-grid-list>
 -->
 
 </div>  
