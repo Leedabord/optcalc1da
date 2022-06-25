@@ -22,7 +22,7 @@
 <button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
 </h4>
 
-<h5 class="example-h2"  *ngFor="let oleg of optLegs; let ii = index"  > L #{{ii+1}}:   <span> &nbsp; </span> 
+<h4 class="example-h2"  *ngFor="let oleg of optLegs; let ii = index"  > L #{{ii+1}}:   <span> &nbsp; </span> 
   <mat-form-field  class="in50px">
   <mat-select placeholder="Buy/Sell" [(ngModel)]="oleg.bs" name="buysell">
     <mat-option *ngFor="let game of buysell" [value]="game.value">
@@ -46,7 +46,7 @@
   </mat-option>
 </mat-select>
 </mat-form-field>     
-</h5>  
+</h4>  
 
 <hr>
 <p> </p>
