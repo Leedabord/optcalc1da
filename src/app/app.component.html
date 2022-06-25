@@ -52,18 +52,29 @@
 <p> </p>
 
 <h5  *ngFor="let pl of plgrid" > 
-  <button> $ {{ pl.mark }} </button>
-  <button mat-button >
-    {{ pl.w0[0] }} &nbsp; &nbsp; 
-    {{ pl.w0[1] }}  &nbsp; &nbsp;
-    {{ pl.w0[2] }}  &nbsp; &nbsp;
-    {{ pl.w0[3] }}   &nbsp; &nbsp;
-    | {{ pl.sum1 }} |   &nbsp; &nbsp;
-    {{ pl.sum2 }} </button>  
-  <button mat-raised-button  color="accent" > $ {{ pl.sum3 }} </button>  
-  <!-- button mat-raised-button  color="warn" > $ {{ pl.sum3 }} </button -->  
+  <mat-grid-list cols="12" rowHeight="30px">
+    <mat-grid-tile
+        [colspan]="2">
+        <button> $ {{ pl.mark }} </button>
+      </mat-grid-tile>
+      <mat-grid-tile
+      [colspan]="7"
+      [rowspan]="1">
+      <button mat-button >
+        {{ pl.w0[0] }} , 
+        {{ pl.w0[1] }} ,  
+        {{ pl.w0[2] }} ,  
+        {{ pl.w0[3] }} 
+        &nbsp; &nbsp; | {{ pl.sum1 }} | &nbsp; &nbsp;
+          {{ pl.sum2 }} </button>  
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="3"
+        [rowspan]="1">
+        <button mat-raised-button  color="accent" > $ {{ pl.sum3 }} </button>  
+      </mat-grid-tile>
+  </mat-grid-list>
 </h5>  
-<!-- /Material Select -->
 
 </mat-card-content>
 </mat-card>
