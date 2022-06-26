@@ -22,31 +22,56 @@
 <button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
 </h4>
 
-<h4 class="example-h2"  *ngFor="let oleg of optLegs; let ii = index"  > L #{{ii+1}}:   <span> &nbsp; </span> 
-  <mat-form-field  class="in50px">
-  <mat-select placeholder="Buy/Sell" [(ngModel)]="oleg.bs" name="buysell">
-    <mat-option *ngFor="let game of buysell" [value]="game.value">
-      {{game.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>    <span> &nbsp; </span>
+<mat-grid-list  *ngFor="let oleg of optLegs; let ii = index"  cols="12" rowHeight="60px">
+<mat-grid-tile
+[colspan]="2"
+[rowspan]="1">
+<h4 mat-button > L# {{ ii+1 }}: </h4>  
+</mat-grid-tile>
+<mat-grid-tile
+[colspan]="2"
+[rowspan]="1">
+<mat-form-field  class="in50px">
+<mat-select placeholder="Buy/Sell" [(ngModel)]="oleg.bs" name="buysell">
+  <mat-option *ngFor="let game of buysell" [value]="game.value">
+    {{game.viewValue}}
+  </mat-option>
+</mat-select>
+</mat-form-field>  </mat-grid-tile>
+<mat-grid-tile
+[colspan]="1"
+[rowspan]="1">
 <mat-form-field  class="in30px">
 <input  type="number"   [(ngModel)]="oleg.qty"  matInput placeholder="qty" />
-</mat-form-field>    <span> &nbsp; </span>
+</mat-form-field>   
+</mat-grid-tile>
+<mat-grid-tile
+[colspan]="2"
+[rowspan]="1">
 <mat-form-field  class="in50px">
 <input matInput  [(ngModel)]="oleg.exp"  placeholder="Exp" />
-</mat-form-field>    <span> &nbsp;  </span>
+</mat-form-field> 
+</mat-grid-tile>
+<mat-grid-tile
+[colspan]="2"
+[rowspan]="1">
 <mat-form-field class="in50px" >
 <input  type="number"  [(ngModel)]="oleg.strike"  matInput placeholder="strike" />
-</mat-form-field>     <span> &nbsp;  </span>
+</mat-form-field>    
+</mat-grid-tile>
+<mat-grid-tile
+[colspan]="2"
+[rowspan]="1">
 <mat-form-field  class="in50px">
 <mat-select placeholder="Put/Call" [(ngModel)]="oleg.cp" name="putcall">
   <mat-option *ngFor="let game of putcall" [value]="game.value">
     {{game.viewValue}}
   </mat-option>
 </mat-select>
-</mat-form-field>     
-</h4>  
+</mat-form-field> 
+</mat-grid-tile>
+</mat-grid-list>
+
 
 <hr>
 <p> </p>
@@ -84,15 +109,11 @@
 
           <mat-grid-list cols="12" rowHeight="20px">
             <mat-grid-tile
-            [colspan]="8"
+            [colspan]="3"
             [rowspan]="1">
             <button mat-button >
-              {{ pl.w0[0] }} , 
-              {{ pl.w0[1] }} ,  
-              {{ pl.w0[2] }} ,  
-              {{ pl.w0[3] }} 
-              &nbsp; &nbsp; | {{ pl.sum1 }} | &nbsp; &nbsp;
-                {{ pl.sum2 }} </button>  
+              &nbsp; &nbsp; | xxxx | &nbsp; &nbsp;
+             </button>  
           </mat-grid-tile>
         </mat-grid-list>
 -->
