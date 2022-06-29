@@ -8,27 +8,6 @@
   </mat-card-header>
   
 <mat-card-content>
-<h4>
-<mat-form-field  class="in50px">
-<input matInput  [(ngModel)]="pos.sym"  placeholder="SYM" />
-</mat-form-field>   <span> &nbsp; &nbsp; &nbsp; </span>  <mat-form-field class="in30px" >
-<input  type="number" matInput  [(ngModel)]="pos.size"   placeholder="Size" />
-</mat-form-field>
-<span> &nbsp; &nbsp; &nbsp;  </span>
-<mat-form-field  class="in50px">
-<input type="number"  [(ngModel)]="pos.cost"  matInput   placeholder="Cost" />
-</mat-form-field>
-<span> &nbsp; &nbsp; &nbsp;  </span>
-<mat-form-field  class="in50px">
-<mat-select placeholder="db/cr" [(ngModel)]="pos.dbcr" name="dbcr">
-  <mat-option *ngFor="let game of dbcr" [value]="game.value">
-    {{game.viewValue}}
-  </mat-option>
-</mat-select>
-</mat-form-field>
-<span> &nbsp; &nbsp; &nbsp;  </span>
-<button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
-</h4>
 
 <mat-grid-list  *ngFor="let oleg of optLegs; let ii = index"  cols="12" rowHeight="60px">
 <mat-grid-tile
@@ -80,6 +59,27 @@
 </mat-grid-tile>
 </mat-grid-list>
 
+<h4>
+<mat-form-field  class="in50px">
+<input matInput  [(ngModel)]="pos.sym"  placeholder="SYM" />
+</mat-form-field>   <span> &nbsp; &nbsp; &nbsp; </span>  <mat-form-field class="in30px" >
+<input  type="number" matInput  [(ngModel)]="pos.size"   placeholder="Size" />
+</mat-form-field>
+<span> &nbsp; &nbsp; &nbsp;  </span>
+<mat-form-field  class="in50px">
+<input type="number"  [(ngModel)]="pos.cost"  matInput   placeholder="Cost" />
+</mat-form-field>
+<span> &nbsp; &nbsp; &nbsp;  </span>
+<mat-form-field  class="in50px">
+<mat-select placeholder="db/cr" [(ngModel)]="pos.dbcr" name="dbcr">
+  <mat-option *ngFor="let game of dbcr" [value]="game.value">
+    {{game.viewValue}}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+<span> &nbsp; &nbsp; &nbsp;  </span>
+<button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
+</h4>
 
 <hr>
 <p> </p>
