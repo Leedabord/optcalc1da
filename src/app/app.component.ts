@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
 
   public buysell = [ { value: 1, viewValue: "Buy" },
               { value: -1, viewValue: "Sell" }  ];
-  public dbcr = [ { value: 1, viewValue: "cr" },
-              { value: -1, viewValue: "db" }  ];
+  public dbcr = [ { value: -1, viewValue: "cr" },
+              { value: 1, viewValue: "db" }  ];
   public putcall = [ { value: 1, viewValue: "Call" },
               { value: -1, viewValue: "Put" }  ];  
   public pos = { sym: "sym", size: 8,  cost: 1.25, dbcr: 1 };
@@ -118,7 +118,7 @@ tempfn() {
         this.plgrid[ii].w0[jj] = 0;
       }
       this.plgrid[ii].sum1 += this.plgrid[ii].w0[jj];
-      this.plgrid[ii].sum2 = this.plgrid[ii].sum1 + (this.pos.cost * this.pos.dbcr);
+      this.plgrid[ii].sum2 = this.plgrid[ii].sum1 - (this.pos.cost * this.pos.dbcr);
       this.plgrid[ii].sum3 = this.plgrid[ii].sum2 * this.pos.size * 100;
     }
   }
