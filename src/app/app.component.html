@@ -18,7 +18,15 @@
 <mat-form-field  class="in50px">
 <input type="number"  [(ngModel)]="pos.cost"  matInput   placeholder="Cost" />
 </mat-form-field>
-<span> &nbsp;  </span>
+<span> &nbsp; &nbsp; &nbsp;  </span>
+<mat-form-field  class="in50px">
+<mat-select placeholder="db/cr" [(ngModel)]="pos.dbcr" name="dbcr">
+  <mat-option *ngFor="let game of dbcr" [value]="game.value">
+    {{game.viewValue}}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+<span> &nbsp; &nbsp; &nbsp;  </span>
 <button mat-raised-button  color="primary"  (click)="tempfn()">Calculate</button>  
 </h4>
 
