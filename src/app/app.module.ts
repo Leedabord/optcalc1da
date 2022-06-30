@@ -19,19 +19,16 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
 
-// import { DialogDataExample, DialogDataExampleDialog
-
 @NgModule({
   imports: [
     BrowserModule,  BrowserAnimationsModule,
-    MatButtonModule, MatTabsModule,  MatCardModule,  MatDialogModule,       
-    MatNativeDateModule,  MaterialExampleModule,  MatBadgeModule,
-    MatButtonModule,  MatIconModule,  
+    MatButtonModule, MatTabsModule,  MatCardModule,        
+    MatNativeDateModule,  MaterialExampleModule, 
+    MatBadgeModule,  MatIconModule,  
     FormsModule, ReactiveFormsModule, 
     HttpClientModule, 
     ],
   declarations: [ AppComponent, HelloComponent, 
-  //  DialogDataExample, DialogDataExampleDialog
    ],
   providers: [],
   bootstrap: [AppComponent]
