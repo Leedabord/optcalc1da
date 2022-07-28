@@ -91,11 +91,11 @@
         <mat-panel-title>
           <button> $ {{ pl.mark }} </button>
           <span>   &nbsp; &nbsp;   &nbsp; &nbsp;  </span> 
-          <button mat-button >   {{ pl.sum2 }} </button>  
+          <button mat-button >   {{ pl.sum2  | currency  }} </button>  
         </mat-panel-title>
         <mat-panel-description>
         <mat-chip-list>
-          <mat-chip color="accent" selected> $ {{ pl.sum3 }} </mat-chip>
+          <mat-chip color="accent" selected> {{ pl.sum3 | currency }} </mat-chip>
         </mat-chip-list>
                           <span>  &nbsp; &nbsp;  (expand) </span> 
         </mat-panel-description>
@@ -107,7 +107,7 @@
               {{ pl.w0[2] }} ,  
               {{ pl.w0[3] }} 
               &nbsp; &nbsp; | {{ pl.sum1 }} | &nbsp; &nbsp;
-                {{ pl.sum2 }} </button>  
+                {{ pl.sum2  | currency }} </button>  
 
       </mat-expansion-panel>
 </mat-accordion>
